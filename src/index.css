@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #1c0913;
+    --bg-card: #2b0f1f;
+    --gold-1: #f0dcaa;
+    --gold-2: #c9a26a;
+    --line: #8f6f4d;
+    --rose: #e58aa6;
+  }
+
+  body {
+    font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: radial-gradient(1000px 600px at 50% -10%, #3e142b 0%, #1c0913 70%, #12050c 100%) fixed;
+    color: #f4eadc;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  body.extra-dark {
+    background: radial-gradient(1000px 600px at 50% -10%, #180510 0%, #090206 65%, #020102 100%) fixed !important;
+    color: #e6ded4;
+  }
+}
+
+.font-amiri {
+  font-family: 'Amiri', serif;
+}
+
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.font-cairo {
+  font-family: 'Cairo', sans-serif;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.9); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(3deg); }
+}
+
+@keyframes cardPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(201, 162, 106, 0);
+  }
+  35% {
+    transform: scale(1.024);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), 0 0 25px 4px rgba(201, 162, 106, 0.35);
+    border-color: rgba(240, 220, 170, 0.85);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45), 0 0 0 0 rgba(201, 162, 106, 0);
+  }
+}
+
+.animate-card-pulse {
+  animation: cardPulse 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.animate-twinkle-delay-1 {
+  animation: twinkle 5s ease-in-out 1.2s infinite;
+}
+
+.animate-twinkle-delay-2 {
+  animation: twinkle 6s ease-in-out 2.5s infinite;
+}
+
+.animate-float {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+/* Hide scrollbar for category horizontal scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Atmospheric Melancholy Particles Keyframe */
+@keyframes particleFloat {
+  0% {
+    transform: translate3d(0, 102vh, 0) scale(0.65);
+    opacity: 0;
+  }
+  15% {
+    opacity: var(--particle-opacity, 0.45);
+  }
+  50% {
+    transform: translate3d(var(--drift-x, 20px), 50vh, 0) scale(1.15);
+    opacity: var(--particle-opacity, 0.65);
+  }
+  85% {
+    opacity: var(--particle-opacity, 0.35);
+  }
+  100% {
+    transform: translate3d(calc(var(--drift-x, 20px) * -0.8), -8vh, 0) scale(0.7);
+    opacity: 0;
+  }
+}
+
+.melancholy-particle {
+  will-change: transform, opacity;
+  animation-name: particleFloat;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-iteration-count: infinite;
+}

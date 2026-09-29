@@ -1,0 +1,6 @@
+{
+  "name": "حروف الوجع - عبارات حزينة",
+  "description": "تطبيق عبارات واقتباسات حزينة ومؤثرة تلامس المشاعر - تطوير المطورين هشام وشيماء مع ميزات المشاركة، الاستماع الصوتي، التصاميم البصرية، وحفظ المفضلة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
